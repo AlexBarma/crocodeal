@@ -43,8 +43,7 @@ $countries ??= [];
                     <div class="row">
                         <div class="col-xl-12">
 
-                            <form class="form-horizontal" id="postForm" method="POST"
-                                action="{{ request()->fullUrl() }}" enctype="multipart/form-data">
+                            <form class="form-horizontal" id="postForm" method="POST" action="{{ request()->fullUrl() }}" enctype="multipart/form-data">
                                 {!! csrf_field() !!}
                                 <fieldset>
 
@@ -55,16 +54,13 @@ $countries ??= [];
                                             <sup>*</sup></label>
                                         <div class="col-md-8">
                                             <div id="catsContainer" class="rounded{{ $categoryIdError }}">
-                                                <a href="#browseCategories" data-bs-toggle="modal" class="cat-link"
-                                                    data-id="0">
+                                                <a href="#browseCategories" data-bs-toggle="modal" class="cat-link" data-id="0">
                                                     {{ t('select_a_category') }}
                                                 </a>
                                             </div>
                                         </div>
-                                        <input type="hidden" name="category_id" id="categoryId"
-                                            value="{{ old('category_id', data_get($postInput, 'category_id', 0)) }}">
-                                        <input type="hidden" name="category_type" id="categoryType"
-                                            value="{{ old('category_type', data_get($postInput, 'category_type')) }}">
+                                        <input type="hidden" name="category_id" id="categoryId" value="{{ old('category_id', data_get($postInput, 'category_id', 0)) }}">
+                                        <input type="hidden" name="category_type" id="categoryType" value="{{ old('category_type', data_get($postInput, 'category_type')) }}">
                                     </div>
 
                                     @if (config('settings.single.show_listing_types'))
@@ -79,13 +75,8 @@ $countries ??= [];
                                         <div class="col-md-8">
                                             @foreach ($postTypes as $postType)
                                             <div class="form-check form-check-inline pt-2">
-                                                <input name="post_type_id"
-                                                    id="postTypeId-{{ data_get($postType, 'id') }}"
-                                                    value="{{ data_get($postType, 'id') }}" type="radio"
-                                                    class="form-check-input{{ $postTypeIdError }}"
-                                                    @checked($postTypeId==data_get($postType, 'id' ))>
-                                                <label class="form-check-label mb-0"
-                                                    for="postTypeId-{{ data_get($postType, 'id') }}">
+                                                <input name="post_type_id" id="postTypeId-{{ data_get($postType, 'id') }}" value="{{ data_get($postType, 'id') }}" type="radio" class="form-check-input{{ $postTypeIdError }}" @checked($postTypeId==data_get($postType, 'id' ))>
+                                                <label class="form-check-label mb-0" for="postTypeId-{{ data_get($postType, 'id') }}">
                                                     {{ data_get($postType, 'name') }}
                                                 </label>
                                             </div>
@@ -101,9 +92,7 @@ $countries ??= [];
                                         <label class="col-md-3 col-form-label{{ $titleError }}" for="title">{{
                                             t('title') }} <sup>*</sup></label>
                                         <div class="col-md-8">11111111111111111111111111
-                                            <input id="title" name="title" placeholder="{{ t('listing_title') }}"
-                                                class="form-control input-md{{ $titleError }}" type="text"
-                                                value="{{ old('title', data_get($postInput, 'title')) }}">
+                                            <input id="title" name="title" placeholder="{{ t('listing_title') }}" class="form-control input-md{{ $titleError }}" type="text" value="{{ old('title', data_get($postInput, 'title')) }}">
                                             <div class="form-text text-muted">{{
                                                 t('a_great_title_needs_at_least_60_characters') }}</div>
                                         </div>
@@ -122,15 +111,12 @@ $countries ??= [];
                                     }
                                     @endphp
                                     <div class="row mb-3 required">
-                                        <label class="col-md-3 col-form-label{{ $descriptionErrorLabel }}"
-                                            for="description">
+                                        <label class="col-md-3 col-form-label{{ $descriptionErrorLabel }}" for="description">
                                             {{ t('Description') }} <sup>*</sup>
                                         </label>
 
                                         <div class="{{ $descriptionColClass }}">
-                                            <textarea class="form-control{{ $descriptionError }}" id="description"
-                                                name="description" rows="15"
-                                                style="height: 300px">{{ old('description', $postDescription) }}</textarea>
+                                            <textarea class="form-control{{ $descriptionError }}" id="description" name="description" rows="15" style="height: 300px">{{ old('description', $postDescription) }}</textarea>
                                             <div class="form-text text-muted">{{
                                                 t('describe_what_makes_your_listing_unique') }}...</div>
                                         </div>
@@ -153,14 +139,9 @@ $countries ??= [];
                                             <div class="input-group">
                                                 <span class="input-group-text">{!! config('currency')['symbol']
                                                     !!}</span>
-                                                <input id="price" name="price" class="form-control{{ $priceError }}"
-                                                    placeholder="{{ t('ei_price') }}" type="number" min="0"
-                                                    step="{{ getInputNumberStep((int)config('currency.decimal_places', 2)) }}"
-                                                    value="{!! $price !!}">
+                                                <input id="price" name="price" class="form-control{{ $priceError }}" placeholder="{{ t('ei_price') }}" type="number" min="0" step="{{ getInputNumberStep((int)config('currency.decimal_places', 2)) }}" value="{!! $price !!}">
                                                 <span class="input-group-text">
-                                                    <input id="negotiable" name="negotiable" type="checkbox" value="1"
-                                                        @checked(old('negotiable', data_get($postInput, 'negotiable'
-                                                        ))=='1' )>&nbsp;
+                                                    <input id="negotiable" name="negotiable" type="checkbox" value="1" @checked(old('negotiable', data_get($postInput, 'negotiable' ))=='1' )>&nbsp;
                                                     <small>{{ t('negotiable') }}</small>
                                                 </span>
                                             </div>
@@ -179,21 +160,16 @@ $countries ??= [];
                                     @endphp
                                     @if (empty(config('country.code')))
                                     <div class="row mb-3 required">
-                                        <label class="col-md-3 col-form-label{{ $countryCodeError }}"
-                                            for="country_code">
+                                        <label class="col-md-3 col-form-label{{ $countryCodeError }}" for="country_code">
                                             {{ t('your_country') }} <sup>*</sup>
                                         </label>
                                         <div class="col-md-8">
-                                            <select id="countryCode" name="country_code"
-                                                class="form-control large-data-selecter{{ $countryCodeError }}">
-                                                <option value="0" data-admin-type="0"
-                                                    @selected(empty(old('country_code')))>
+                                            <select id="countryCode" name="country_code" class="form-control large-data-selecter{{ $countryCodeError }}">
+                                                <option value="0" data-admin-type="0" @selected(empty(old('country_code')))>
                                                     {{ t('select_a_country') }}
                                                 </option>
                                                 @foreach ($countries as $item)
-                                                <option value="{{ data_get($item, 'code') }}"
-                                                    data-admin-type="{{ data_get($item, 'admin_type') }}"
-                                                    @selected($countryCodeValueOld==data_get($item, 'code' ))>
+                                                <option value="{{ data_get($item, 'code') }}" data-admin-type="{{ data_get($item, 'admin_type') }}" @selected($countryCodeValueOld==data_get($item, 'code' ))>
                                                     {{ data_get($item, 'name') }}
                                                 </option>
                                                 @endforeach
@@ -201,8 +177,7 @@ $countries ??= [];
                                         </div>
                                     </div>
                                     @else
-                                    <input id="countryCode" name="country_code" type="hidden"
-                                        value="{{ config('country.code') }}">
+                                    <input id="countryCode" name="country_code" type="hidden" value="{{ config('country.code') }}">
                                     @endif
 
                                     @php
@@ -216,8 +191,7 @@ $countries ??= [];
                                         <label class="col-md-3 col-form-label{{ $adminCodeError }}" for="admin_code">{{
                                             t('location') }} <sup>*</sup></label>
                                         <div class="col-md-8">
-                                            <select id="adminCode" name="admin_code"
-                                                class="form-control large-data-selecter{{ $adminCodeError }}">
+                                            <select id="adminCode" name="admin_code" class="form-control large-data-selecter{{ $adminCodeError }}">
                                                 <option value="0" @selected(empty(old('admin_code')))>
                                                     {{ t('select_your_location') }}
                                                 </option>
@@ -226,14 +200,10 @@ $countries ??= [];
                                     </div>
                                     @endif
                                     @else
-                                    <input type="hidden" id="selectedAdminType" name="selected_admin_type"
-                                        value="{{ old('selected_admin_type', $adminType) }}">
-                                    <input type="hidden" id="selectedAdminCode" name="selected_admin_code"
-                                        value="{{ old('selected_admin_code', 0) }}">
-                                    <input type="hidden" id="selectedCityId" name="selected_city_id"
-                                        value="{{ old('selected_city_id', 0) }}">
-                                    <input type="hidden" id="selectedCityName" name="selected_city_name"
-                                        value="{{ old('selected_city_name') }}">
+                                    <input type="hidden" id="selectedAdminType" name="selected_admin_type" value="{{ old('selected_admin_type', $adminType) }}">
+                                    <input type="hidden" id="selectedAdminCode" name="selected_admin_code" value="{{ old('selected_admin_code', 0) }}">
+                                    <input type="hidden" id="selectedCityId" name="selected_city_id" value="{{ old('selected_city_id', 0) }}">
+                                    <input type="hidden" id="selectedCityName" name="selected_city_name" value="{{ old('selected_city_name') }}">
                                     @endif
 
                                     {{-- city_id --}}
@@ -242,8 +212,7 @@ $countries ??= [];
                                         <label class="col-md-3 col-form-label{{ $cityIdError }}" for="city_id">{{
                                             t('city') }} <sup>*</sup></label>
                                         <div class="col-md-8">
-                                            <select id="cityId" name="city_id"
-                                                class="form-control large-data-selecter{{ $cityIdError }}">
+                                            <select id="cityId" name="city_id" class="form-control large-data-selecter{{ $cityIdError }}">
                                                 <option value="0" @selected(empty(old('city_id')))>
                                                     {{ t('select_a_city') }}
                                                 </option>
@@ -252,15 +221,12 @@ $countries ??= [];
                                     </div>
 
                                     {{-- geolocation_id --}}
-                                    2222222222222222222222222222 Вставил поле геолокации (создал перевод на русском)
+                                    222222222222222222222222222222 Вставил поле геолокации (создал перевод на русском)
                                     <div class="row mb-3 required">
                                         <label class="col-md-3 col-form-label" for="geolocation">{{ t('geolocation') }}
                                         </label>
                                         <div class="col-md-8">
-                                            <input id="geolocation" name="geolocation"
-                                                placeholder="{{ t('enter_your_coordinates') }}"
-                                                class="form-control input-md" type="text"
-                                                value="{{ old('geolocation', data_get($postInput, 'geolocation')) }}">
+                                            <input id="geolocation" name="geolocation" placeholder="{{ t('enter_your_coordinates') }}" class="form-control input-md" type="text" value="{{ old('geolocation', data_get($postInput, 'geolocation')) }}">
                                             <div class="form-text text-muted">{{ t('copy_the_coordinates_of_
                                                 your_ad_to_Google_Maps') }}</div>
                                         </div>
@@ -275,8 +241,7 @@ $countries ??= [];
                                         <label class="col-md-3 col-form-label{{ $tagsError }}" for="tags">{{ t('Tags')
                                             }}</label>
                                         <div class="col-md-8">
-                                            <select id="tags" name="tags[]" class="form-control tags-selecter"
-                                                multiple="multiple">
+                                            <select id="tags" name="tags[]" class="form-control tags-selecter" multiple="multiple">
                                                 @if (!empty($tags))
                                                 @foreach($tags as $iTag)
                                                 <option selected="selected">{{ $iTag }}</option>
@@ -302,10 +267,7 @@ $countries ??= [];
                                         <label class="col-md-3 col-form-label"></label>
                                         <div class="col-md-8">
                                             <div class="form-check">
-                                                <input id="isPermanent" name="is_permanent"
-                                                    class="form-check-input mt-1{{ $isPermanentError }}" value="1"
-                                                    type="checkbox" @checked(old('is_permanent',
-                                                    data_get($postInput, 'is_permanent' ))=='1' )>
+                                                <input id="isPermanent" name="is_permanent" class="form-check-input mt-1{{ $isPermanentError }}" value="1" type="checkbox" @checked(old('is_permanent', data_get($postInput, 'is_permanent' ))=='1' )>
                                                 <label class="form-check-label mt-0" for="is_permanent">
                                                     {!! t('is_permanent_label') !!}
                                                 </label>
@@ -326,21 +288,16 @@ $countries ??= [];
                                     {{-- contact_name --}}
                                     <?php $contactNameError = (isset($errors) && $errors->has('contact_name')) ? ' is-invalid' : ''; ?>
                                     @if (auth()->check())
-                                    <input id="contactName" name="contact_name" type="hidden"
-                                        value="{{ auth()->user()->name }}">
+                                    <input id="contactName" name="contact_name" type="hidden" value="{{ auth()->user()->name }}">
                                     @else
                                     <div class="row mb-3 required">
-                                        <label class="col-md-3 col-form-label{{ $contactNameError }}"
-                                            for="contact_name">
+                                        <label class="col-md-3 col-form-label{{ $contactNameError }}" for="contact_name">
                                             {{ t('your_name') }} <sup>*</sup>
                                         </label>
                                         <div class="col-md-9 col-lg-8 col-xl-6">
                                             <div class="input-group">
                                                 <span class="input-group-text"><i class="far fa-user"></i></span>
-                                                <input id="contactName" name="contact_name"
-                                                    placeholder="{{ t('your_name') }}"
-                                                    class="form-control input-md{{ $contactNameError }}" type="text"
-                                                    value="{{ old('contact_name', data_get($postInput, 'contact_name')) }}">
+                                                <input id="contactName" name="contact_name" placeholder="{{ t('your_name') }}" class="form-control input-md{{ $contactNameError }}" type="text" value="{{ old('contact_name', data_get($postInput, 'contact_name')) }}">
                                             </div>
                                         </div>
                                     </div>
@@ -362,10 +319,7 @@ $countries ??= [];
                                         <div class="col-md-9">
                                             @foreach ($authFields as $iAuthField => $notificationType)
                                             <div class="form-check form-check-inline pt-2">
-                                                <input name="auth_field" id="{{ $iAuthField }}AuthField"
-                                                    value="{{ $iAuthField }}"
-                                                    class="form-check-input auth-field-input{{ $authFieldError }}"
-                                                    type="radio" @checked($authFieldValue==$iAuthField)>
+                                                <input name="auth_field" id="{{ $iAuthField }}AuthField" value="{{ $iAuthField }}" class="form-check-input auth-field-input{{ $authFieldError }}" type="radio" @checked($authFieldValue==$iAuthField)>
                                                 <label class="form-check-label mb-0" for="{{ $iAuthField }}AuthField">
                                                     {{ $notificationType }}
                                                 </label>
@@ -377,8 +331,7 @@ $countries ??= [];
                                         </div>
                                     </div>
                                     @else
-                                    <input id="{{ $authFieldValue }}AuthField" name="auth_field" type="hidden"
-                                        value="{{ $authFieldValue }}">
+                                    <input id="{{ $authFieldValue }}AuthField" name="auth_field" type="hidden" value="{{ $authFieldValue }}">
                                     @endif
 
                                     @php
@@ -402,9 +355,7 @@ $countries ??= [];
                                         <div class="col-md-9 col-lg-8 col-xl-6">
                                             <div class="input-group">
                                                 <span class="input-group-text"><i class="far fa-envelope"></i></span>
-                                                <input id="email" name="email" class="form-control{{ $emailError }}"
-                                                    placeholder="{{ t('email_address') }}" type="text"
-                                                    value="{{ old('email', $emailValue) }}">
+                                                <input id="email" name="email" class="form-control{{ $emailError }}" placeholder="{{ t('email_address') }}" type="text" value="{{ old('email', $emailValue) }}">
                                             </div>
                                         </div>
                                     </div>
@@ -437,17 +388,13 @@ $countries ??= [];
                                         </label>
                                         <div class="col-md-9 col-lg-8 col-xl-6">
                                             <div class="input-group">
-                                                <input id="phone" name="phone"
-                                                    class="form-control input-md{{ $phoneError }}" type="tel"
-                                                    value="{{ $phoneValueOld }}">
+                                                <input id="phone" name="phone" class="form-control input-md{{ $phoneError }}" type="tel" value="{{ $phoneValueOld }}">
                                                 <span class="input-group-text iti-group-text">
-                                                    <input id="phoneHidden" name="phone_hidden" type="checkbox"
-                                                        value="1" @checked(old('phone_hidden')=='1' )>&nbsp;
+                                                    <input id="phoneHidden" name="phone_hidden" type="checkbox" value="1" @checked(old('phone_hidden')=='1' )>&nbsp;
                                                     <small>{{ t('Hide') }}</small>
                                                 </span>
                                             </div>
-                                            <input name="phone_country" type="hidden"
-                                                value="{{ old('phone_country', $phoneCountryValue) }}">
+                                            <input name="phone_country" type="hidden" value="{{ old('phone_country', $phoneCountryValue) }}">
                                         </div>
                                     </div>
 
@@ -460,9 +407,7 @@ $countries ??= [];
                                         <label class="col-md-3 col-form-label"></label>
                                         <div class="col-md-8">
                                             <div class="form-check">
-                                                <input name="auto_registration" id="auto_registration"
-                                                    class="form-check-input{{ $autoRegistrationError }}" value="1"
-                                                    type="checkbox" checked="checked">
+                                                <input name="auto_registration" id="auto_registration" class="form-check-input{{ $autoRegistrationError }}" value="1" type="checkbox" checked="checked">
                                                 <label class="form-check-label" for="auto_registration">
                                                     {!! t('I want to register by submitting this listing') !!}
                                                 </label>
@@ -491,11 +436,8 @@ $countries ??= [];
                                         <label class="col-md-3 col-form-label"></label>
                                         <div class="col-md-8">
                                             <div class="form-check">
-                                                <input name="accept_terms" id="acceptTerms"
-                                                    class="form-check-input{{ $acceptTermsError }}" value="1"
-                                                    type="checkbox" @checked($acceptTerms=='1' )>
-                                                <label class="form-check-label" for="acceptTerms"
-                                                    style="font-weight: normal;">
+                                                <input name="accept_terms" id="acceptTerms" class="form-check-input{{ $acceptTermsError }}" value="1" type="checkbox" @checked($acceptTerms=='1' )>
+                                                <label class="form-check-label" for="acceptTerms" style="font-weight: normal;">
                                                     {!! t('accept_terms_label', ['attributes' =>
                                                     getUrlPageByType('terms')]) !!}
                                                 </label>
@@ -514,11 +456,8 @@ $countries ??= [];
                                         <label class="col-md-3 col-form-label"></label>
                                         <div class="col-md-8">
                                             <div class="form-check">
-                                                <input name="accept_marketing_offers" id="acceptMarketingOffers"
-                                                    class="form-check-input{{ $acceptMarketingOffersError }}" value="1"
-                                                    type="checkbox" @checked($acceptMarketingOffers=='1' )>
-                                                <label class="form-check-label" for="acceptMarketingOffers"
-                                                    style="font-weight: normal;">
+                                                <input name="accept_marketing_offers" id="acceptMarketingOffers" class="form-check-input{{ $acceptMarketingOffersError }}" value="1" type="checkbox" @checked($acceptMarketingOffers=='1' )>
+                                                <label class="form-check-label" for="acceptMarketingOffers" style="font-weight: normal;">
                                                     {!! t('accept_marketing_offers_label') !!}
                                                 </label>
                                             </div>
