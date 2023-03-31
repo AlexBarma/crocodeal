@@ -254,13 +254,13 @@ $countries ??= [];
                                     {{-- geolocation_id --}}
                                     2222222222222222222222222222 Вставил поле геолокации (создал перевод на русском)
                                     <div class="row mb-3 required">
-                                        <label class="col-md-3 col-form-label{{ $titleError }}" for="title">{{
-                                            t('geolocation') }} </label>
+                                        <label class="col-md-3 col-form-label" for="geolocation">{{ t('geolocation') }}
+                                        </label>
                                         <div class="col-md-8">
-                                            <input id="title" name="title"
+                                            <input id="geolocation" name="geolocation"
                                                 placeholder="{{ t('enter_your_coordinates') }}"
-                                                class="form-control input-md{{ $titleError }}" type="text"
-                                                value="{{ old('title', data_get($postInput, 'title')) }}">
+                                                class="form-control input-md" type="text"
+                                                value="{{ old('geolocation', data_get($postInput, 'geolocation')) }}">
                                             <div class="form-text text-muted">{{ t('copy_the_coordinates_of_
                                                 your_ad_to_Google_Maps') }}</div>
                                         </div>
