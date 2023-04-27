@@ -230,7 +230,7 @@ $socialAndAppsLinksAreEnabled = ($socialLinksAreEnabled || $appsLinksAreEnabled)
 					<img style="width: 15%;" src="/public/images/Logo corner_web.jpg" alt="">
 					<img style="width: 15%;" src="/public/images/duck_ville_web.jpg" alt="">
 					<img style="width: 21%;" src="/public/images/Logotip_OSA_web.jpg" alt="">
-					<img style="width: 13%;height: 90%;" src="/public/images/logo_sweet_corner_web.jpg" alt="">
+					<img style="width: 13%;height: 90%;padding-top: 10px" src="/public/images/logo_sweet_corner_web.jpg" alt="">
 				</div>
 				<!-- partner block end -->
 				<div class="col-12">
