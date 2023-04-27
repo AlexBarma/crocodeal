@@ -191,21 +191,48 @@ $socialAndAppsLinksAreEnabled = ($socialLinksAreEnabled || $appsLinksAreEnabled)
 				$mtPay = '';
 				$mtCopy = ' mt-md-4 mt-3 pt-2';
 				?>
-				<!--Block partner-------------------------------------->
+				<!--Block Wiedgt-------------------------------------->
 				<hr style="width: 1170px;" class="bg-secondary border-0">
-				<h3><b>Наши патнеры</b></h3>
+				<!--Block Wiedgt start-->
+				<div style="display: grid;
+		 grid-gap: 60px;
+		  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+		   grid-template-rows: repeat(100%);">
+					<!-- Блок карта -->
+					<div style="padding-top: 15px;">
+						<h3><b>{{ t('footer_map') }}</b></h3>
+						<iframe style="border: 0;" src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d11594.462872338641!2d33.84351382824284!3d27.21724034069126!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sru!2seg!4v1679943235984!5m2!1sru!2seg" width="100%" height="212" allowfullscreen="" loading="lazy"></iframe>
+					</div>
+					<!-- Блок карта end -->
+					
+					<!--Блок конвертер валюты-->
+					<div style="width:100%;padding-top: 15px;">
+						<h3><b>{{ t('currency_converter') }}</b></h3>
+						<fxwidget-cc amount="100" decimals="2" large="false" shadow="true" symbol="true" grouping="true" border="true" from="USD" to="EUR" background-color="#4682b4">
+						</fxwidget-cc><a href="https://currencyrate.today/">CurrencyRate</a>
+						<script async src="https://s.fx-w.io/widgets/currency-converter/latest.js"></script>
+					</div >
+					<!-- weather  start -->
+					<div style="padding-top: 5px;"><a target="_blank" href="https://nochi.com/weather/hurghada-19428"><img src="https://w.bookcdn.com/weather/picture/4_19428_1_20_137AE9_350_ffffff_333333_08488D_1_ffffff_333333_0_6.png?scode=&domid=589&anc_id=33365"  alt="booked.net"/></a>
+				</div>
+				<!-- weather end -->
+				</div>
+				<!--Block Wiedgt end-->
+				<!-- partner block start -->
+				<h3><b>{{ t('our_partners') }}</b></h3>
 				<div style="
         display: flex;
         grid-gap: 20px;
         grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
         grid-template-rows: repeat(100%);
       ">
-					
-					<img style="width: 15%;" src="/public/images/Logo corner.jpg" alt="">
-					<img style="width: 15%;" src="/public/images/duck_ville.png" alt="">
-					<img style="width: 21%;" src="/public/images/Logotip_OSA.png" alt="">
-					<img style="width: 13%;height: 90%;" src="/public/images/logo_sweet_corner.png" alt="">
+
+					<img style="width: 15%;" src="/public/images/Logo corner_web.jpg" alt="">
+					<img style="width: 15%;" src="/public/images/duck_ville_web.jpg" alt="">
+					<img style="width: 21%;" src="/public/images/Logotip_OSA_web.jpg" alt="">
+					<img style="width: 13%;height: 90%;" src="/public/images/logo_sweet_corner_web.jpg" alt="">
 				</div>
+				<!-- partner block end -->
 				<div class="col-12">
 					@if (!config('settings.footer.hide_payment_plugins_logos') && isset($paymentMethods) && $paymentMethods->count() > 0)
 					@if (config('settings.footer.hide_links'))
