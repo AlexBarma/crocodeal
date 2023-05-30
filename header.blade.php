@@ -51,7 +51,8 @@ if ($multiCountriesIsEnabled) {
 				@if ($multiCountriesIsEnabled)
 					@if (!empty(config('country.icode')))
 						@if (file_exists(public_path() . '/images/flags/24/' . config('country.icode') . '.png'))
-							<button class="flag-menu country-flag d-md-none d-sm-block d-none btn btn-default float-end" href="#selectCountry" data-bs-toggle="modal">
+						<!-- Убрал класс d-none из 55 ой строчки из класса в теге <button class="flag-menu country-flag d-md-none d-sm-block d-none btn btn-default float-end" href="#selectCountry" data-bs-toggle="modal"> чтобы на мобильном оставалась возможность выбирать страну -->
+							<button class="flag-menu country-flag d-md-none d-sm-block btn btn-default float-end" href="#selectCountry" data-bs-toggle="modal">
 								<img src="{{ url('images/flags/24/' . config('country.icode') . '.png') . getPictureVersion() }}"
 									 alt="{{ config('country.name') }}"
 									 style="float: left;"
@@ -80,8 +81,8 @@ if ($multiCountriesIsEnabled) {
 												 alt="{{ config('country.name') }}"
 											>
 											<span class="caret d-lg-block d-md-none d-sm-none d-none float-end mt-3 mx-1"></span>
-											{{ t('country_flag_header') }}
-									<!--Поставил надпись страна рядом с флагом по умолчанию в header--></a>
+										{{ t('country_flag_header') }}</a>
+										<!--Поставил надпись страна {{ t('country_flag_header') }} рядом с флагом по умолчанию в header-->
 									@else
 										<a class="p-0" style="cursor: default;">
 											<img class="flag-icon"
@@ -89,6 +90,7 @@ if ($multiCountriesIsEnabled) {
 												 alt="{{ config('country.name') }}"
 											>
 										</a>
+									
 									@endif
 								</li>
 							@endif
