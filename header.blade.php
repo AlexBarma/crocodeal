@@ -80,15 +80,15 @@ if ($multiCountriesIsEnabled) {
 												 alt="{{ config('country.name') }}"
 											>
 											<span class="caret d-lg-block d-md-none d-sm-none d-none float-end mt-3 mx-1"></span>
-										</a>
+											{{ t('country_flag_header') }}
+									<!--Поставил надпись страна рядом с флагом по умолчанию в header--></a>
 									@else
 										<a class="p-0" style="cursor: default;">
 											<img class="flag-icon"
 												 src="{{ url('images/flags/32/' . config('country.icode') . '.png') . getPictureVersion() }}"
 												 alt="{{ config('country.name') }}"
 											>
-										</a>{{ t('country_flag_header') }}
-									<!--Поставил надпись страна рядом с флагом по умолчанию в header-->
+										</a>
 									@endif
 								</li>
 							@endif
