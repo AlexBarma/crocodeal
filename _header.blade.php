@@ -80,7 +80,7 @@ if ($multiCountriesIsEnabled) {
                                             <p
                                                 style="font-size: 16px;
 											display: inline;
-											padding-left: 10px
+											padding-left: 10px;
 											vertical-align: sub;">
                                                 {{ t('country_flag_header') }}</p>
                                         </a>
