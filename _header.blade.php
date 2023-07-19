@@ -78,7 +78,8 @@ if ($multiCountriesIsEnabled) {
                                             <span
                                                 class="caret d-lg-block d-md-none d-sm-none d-none float-end mt-3 mx-1"></span>
                                             <p
-                                                style="font-size: 16px;
+                                                style="font-size: 15px;
+											font-family: Roboto,Helvetica,Arial,sans-serif;
 											display: inline;
 											padding-left: 10px;
 											vertical-align: sub;">
